@@ -33,12 +33,8 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="home-daftar">
                 <div class="alert alert-success">
 					<h4><i class="icon fa fa-check-circle"></i> Pendaftaran berhasil</h4>
-                    <p>Segera lakukan verifikasi akun yang dikirim melalui <code>email</code>, kemudian login dan lengkapi data yang dibutuhkan.</p> 
-					<div class="social text-center">
-						<a href="https://mail.kemhan.go.id" target="_blank"><i class="fa fa-envelope"></i> Email Kemhan</a>
-						<a href="https://mail.google.com" target="_blank"><i class="fa fa-envelope"></i> Gmail</a>
-						<a href="https://mail.yahoo.com" target="_blank"><i class="fa fa-envelope"></i> Yahoo! Mail</a>
-					</div>
+                    <p>Terima kasih <code> atas pendaftarannya...</code>, .</p> 
+					
 				</div>
                 <!--Membuat garis-->
                 <hr>
@@ -51,54 +47,140 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="row">
                     <div class="col-md-12">
                         <ul id="tab1" class="nav nav-tabs">
-                            <li><a href="#tab1-item1" data-toggle="tab">Petunjuk</a></li>
-                            <li class="active"><a href="#tab1-item2" data-toggle="tab">Form E-Registrasi</a></li>
+                            <li><a href="#tab1-item1" data-toggle="tab">Petunjuk Pendaftaran</a></li>
+                            <li class="active"><a href="#tab1-item2" data-toggle="tab">Form Pendaftaran</a></li>
                         </ul>
                         <div class="tab-content">
                                 <div class="tab-pane fade" id="tab1-item1">
-                                        <h3>Pendaftaran Komando Cadangan</h3>
+                                        <h3>Petunjuk Pendaftaran Komponen Cadangan</h3>
                                 </div>
                                 <div class="tab-pane fade active in" id="tab1-item2">
-                                
-                                    <div class="contact-form bottom">
-                                        <?php $form = ActiveForm::begin([
-                                            <?= $form->field($model, 'nama_lengkap')->textInput(['maxlength' => true]) ?>
-											<?= $form->field($model, 'nik')->textInput(['maxlength' => true]) ?>
-											<?= $form->field($model, 'tempat_lahir')->textInput(['maxlength' => true]) ?>
-											<?= $form->field($model, 'tanggal_lahir')->textInput() ?>
-											<?= $form->field($model, 'jenis_kelamin')->dropDownList([ 'Pria' => 'Pria', 'Wanita' => 'Wanita', ], ['prompt' => '']) ?>
-											<?= $form->field($model, 'agama')->textInput(['maxlength' => true]) ?>
-											<?= $form->field($model, 'suku')->textInput(['maxlength' => true]) ?>
-											<?= $form->field($model, 'kewarganegaraan')->textInput(['maxlength' => true]) ?>
-											<?= $form->field($model, 'tinggi_badan')->textInput() ?>
-											<?= $form->field($model, 'berat_badan')->textInput() ?>
-											<?= $form->field($model, 'alamat')->textarea(['rows' => 6]) ?>
-											<?= $form->field($model, 'kelurahan_desa')->textInput(['maxlength' => true]) ?>
-											<?= $form->field($model, 'kecamatan')->textInput(['maxlength' => true]) ?>
-											<?= $form->field($model, 'kabupaten')->textInput(['maxlength' => true]) ?>
-											<?= $form->field($model, 'provinsi')->textInput(['maxlength' => true]) ?>
-											<?= $form->field($model, 'domisili')->textInput(['maxlength' => true]) ?>
-											<?= $form->field($model, 'kode_pos')->textInput(['maxlength' => true]) ?>
-											<?= $form->field($model, 'nomer_telepon')->textInput(['maxlength' => true]) ?>
-											<?= $form->field($model, 'jumlah_saudara_kandung')->textInput() ?>
-											<?= $form->field($model, 'anak_ke_berapa')->textInput() ?>
-											<?= $form->field($model, 'dari_jumlah_bersaudara')->textInput() ?>
+									
+									<div class="stepwizard">
+										<div class="stepwizard-row setup-panel">
+											<div class="stepwizard-step">
+												<a href="#step-1" type="button" class="btn btn-primary btn-circle">1</a>
+												<p>Step 1</p>
+											</div>
+											<div class="stepwizard-step">
+												<a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+												<p>Step 2</p>
+											</div>
+											<div class="stepwizard-step">
+												<a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
+												<p>Step 3</p>
+											</div>
+											<div class="stepwizard-step">
+												<a href="#step-4" type="button" class="btn btn-default btn-circle" disabled="disabled">4</a>
+												<p>Step 4</p>
+											</div>
+											<div class="stepwizard-step">
+												<a href="#step-5" type="button" class="btn btn-default btn-circle" disabled="disabled">5</a>
+												<p>Step 5</p>
+											</div>
+										</div>
+									</div>
+									<form role="form">
+										<div class="row setup-content" id="step-1">
+											<div class="col-xs-12">
+												<div class="col-md-12">
+													<h3> Data Pribadi</h3>
+													
+														<?php $form = ActiveForm::begin(); ?>
+														<?= $form->field($model, 'no_registrasi')->textInput(['maxlength' => true]) ?>
+														<?= $form->field($model, 'nama_lengkap')->textInput(['maxlength' => true]) ?>
+														<?= $form->field($model, 'nik')->textInput(['maxlength' => true]) ?>
+														<?= $form->field($model, 'tempat_lahir')->textInput(['maxlength' => true]) ?>
+														<?= $form->field($model, 'tanggal_lahir')->textInput() ?>
+														<?= $form->field($model, 'jenis_kelamin')->dropDownList([ 'Pria' => 'Pria', 'Wanita' => 'Wanita', ], ['prompt' => '']) ?>
+														<?= $form->field($model, 'agama')->textInput(['maxlength' => true]) ?>
+														<?= $form->field($model, 'suku')->textInput(['maxlength' => true]) ?>
+														<?= $form->field($model, 'kewarganegaraan')->textInput(['maxlength' => true]) ?>
+														<?= $form->field($model, 'tinggi_badan')->textInput() ?>
+														<?= $form->field($model, 'berat_badan')->textInput() ?>
+														<?= $form->field($model, 'alamat')->textarea(['rows' => 6]) ?>
+														<?= $form->field($model, 'kelurahan_desa')->textInput(['maxlength' => true]) ?>
+														<?= $form->field($model, 'kecamatan')->textInput(['maxlength' => true]) ?>
+														<?= $form->field($model, 'kabupaten')->textInput(['maxlength' => true]) ?>
+														<?= $form->field($model, 'provinsi')->textInput(['maxlength' => true]) ?>
+														<?= $form->field($model, 'domisili')->textInput(['maxlength' => true]) ?>
+														<?= $form->field($model, 'kode_pos')->textInput(['maxlength' => true]) ?>
+														<?= $form->field($model, 'nomer_telepon')->textInput(['maxlength' => true]) ?>
+														<?= $form->field($model, 'jumlah_saudara_kandung')->textInput() ?>
+														<?= $form->field($model, 'anak_ke_berapa')->textInput() ?>
+														<?= $form->field($model, 'dari_jumlah_bersaudara')->textInput() ?>
 
-                                            <?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
-                                                'captchaAction' => 'home/captcha', //action ke controllernya 
-                                                'template' => '<div class="row"><div class="col-lg-2">{image}</div><div class="col-lg-10">{input}</div></div>',
-                                            ]) ?>
-
-                                            <div class="form-group">
-                                                <?= Html::submitButton('Daftar', ['class' => 'btn btn-primary', 'name' => 'daftar-button']) ?>
-                                            </div>
-
-                                        <?php ActiveForm::end(); ?>
-
-                                    </div>
-                    
+														<div class="form-group">
+															<?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+														</div>
+														<?php ActiveForm::end(); ?>
+													
+													
+													<button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
+												</div>
+											</div>
+										</div>
+										<div class="row setup-content" id="step-2">
+											<div class="col-xs-12">
+												<div class="col-md-12">
+													<h3> Step 2</h3>
+													<div class="form-group">
+														<label class="control-label">Company Name</label>
+														<input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Name" />
+													</div>
+													<div class="form-group">
+														<label class="control-label">Company Address</label>
+														<input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Address"  />
+													</div>
+													<button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
+												</div>
+											</div>
+										</div>
+										<div class="row setup-content" id="step-3">
+											<div class="col-xs-12">
+												<div class="col-md-12">
+													<h3> Step 3</h3>
+													<div class="form-group">
+														<label class="control-label">Company Name</label>
+														<input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Name" />
+													</div>
+													<div class="form-group">
+														<label class="control-label">Company Address</label>
+														<input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Address"  />
+													</div>
+													<button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
+												</div>
+											</div>
+										</div>
+										<div class="row setup-content" id="step-4">
+											<div class="col-xs-12">
+												<div class="col-md-12">
+													<h3> Step 4</h3>
+													<div class="form-group">
+														<label class="control-label">Company Name</label>
+														<input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Name" />
+													</div>
+													<div class="form-group">
+														<label class="control-label">Company Address</label>
+														<input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Address"  />
+													</div>
+													<button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
+												</div>
+											</div>
+										</div>
+										<div class="row setup-content" id="step-5">
+											<div class="col-xs-12">
+												<div class="col-md-12">
+													<h3> Step 5</h3>
+													<button class="btn btn-success btn-lg pull-right" type="submit">Finish!</button>
+												</div>
+											</div>
+										</div>
+									</form>
+									
                                 </div>
                         </div>
+						
                     </div>
                 </div>
                 <!--Membuat garis-->

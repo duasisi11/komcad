@@ -9,12 +9,17 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\RegistrasiForm;
 
 class SiteController extends Controller
 {
     /**
      * {@inheritdoc}
      */
+	 
+	 //--Setting layout
+    public $layout = 'main-frontend';
+	
     public function behaviors()
     {
         return [
@@ -129,10 +134,9 @@ class SiteController extends Controller
 	
     public function actionRegistrasi()
     {
-		$this->layout = 'main-frontend';
-        $model = new RegistrasiForm();
+		 $model = new RegistrasiForm();
 
-        $title = 'Registrasi Komando Cadangan';
+        $title = 'Pendaftaran Komponen Cadangan';
 
         if ($model->load(Yii::$app->request->post()) && $model->daftar()) {
             //---Melakukan penambahan setFlash pada session dengan nama 'daftarFormSubmitted'

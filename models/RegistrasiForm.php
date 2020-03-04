@@ -16,23 +16,48 @@ use  yii\db\Command;
  */
 class RegistrasiForm extends Model
 {   
+	 public $no_registrasi;
+	 public $nama_lengkap;
+	 public $nik;
+	 public $tempat_lahir;
+	 public $tanggal_lahir;
+	 public $jenis_kelamin;
+	 public $agama;
+	 public $suku;
+	 public $kewarganegaraan;
+	 public $tinggi_badan;
+	 public $berat_badan;
+	 public $alamat;
+	 public $kelurahan_desa;
+	 public $kecamatan;
+	 public $kabupaten;
+	 public $provinsi;
+	 public $domisili;
+	 public $kode_pos;
+	 public $nomer_telepon;
+	 public $jumlah_saudara_kandung;
+	 public $anak_ke_berapa;
+	 public $dari_jumlah_bersaudara;
+	 public $verifyCode;
+	 
+ 
     /**
      * @return array the validation rules.
      */
     public function rules()
     {
        return [
-            [['no_registrasi', 'nik_komcad'], 'required'],
+            [['no_registrasi', 'nik'], 'required'],
             [['tanggal_lahir'], 'safe'],
-            [['jenis_kelamin', 'alamat', 'matra'], 'string'],
-            [['tinggi_badan', 'berat_badan', 'jml_saudara_kandung', 'anak_ke', 'dari_berapa_bersaudara', 'ipk_nilai_un'], 'integer'],
-            [['no_registrasi', 'nik_komcad', 'nama_lengkap', 'kodam', 'kodim'], 'string', 'max' => 50],
+            [['jenis_kelamin', 'alamat'], 'string'],
+            [['tinggi_badan', 'berat_badan', 'jumlah_saudara_kandung', 'anak_ke_berapa', 'dari_jumlah_bersaudara'], 'integer'],
+            [['no_registrasi', 'nama_lengkap', 'nik', 'suku', 'kewarganegaraan'], 'string', 'max' => 50],
             [['tempat_lahir'], 'string', 'max' => 60],
-            [['agama', 'suku', 'kode_pos', 'nomer_telepon'], 'string', 'max' => 30],
-            [['kewarganegaraan'], 'string', 'max' => 40],
-            [['kelurahan', 'kecamatan', 'kabupaten', 'provinsi', 'domisili'], 'string', 'max' => 100],
-            [['pendidikan_terakhir', 'nama_perguruan_tinggi_sekolah', 'status_perguruan_tinggi_sekolah', 'program_studi_jurusan', 'akreditasi'], 'string', 'max' => 80],
+            [['agama', 'kode_pos', 'nomer_telepon'], 'string', 'max' => 30],
+            [['kelurahan_desa', 'kecamatan', 'kabupaten', 'provinsi', 'domisili'], 'string', 'max' => 100],
             [['no_registrasi'], 'unique'],
+			
+			['verifyCode', 'captcha','captchaAction'=>'site/captcha'], //action ke controllernya 
         ];
     }
 
@@ -43,8 +68,8 @@ class RegistrasiForm extends Model
     {
        return [
             'no_registrasi' => 'No Registrasi',
-            'nik_komcad' => 'Nik Komcad',
             'nama_lengkap' => 'Nama Lengkap',
+            'nik' => 'NIK',
             'tempat_lahir' => 'Tempat Lahir',
             'tanggal_lahir' => 'Tanggal Lahir',
             'jenis_kelamin' => 'Jenis Kelamin',
@@ -54,25 +79,16 @@ class RegistrasiForm extends Model
             'tinggi_badan' => 'Tinggi Badan',
             'berat_badan' => 'Berat Badan',
             'alamat' => 'Alamat',
-            'kelurahan' => 'Kelurahan',
+            'kelurahan_desa' => 'Kelurahan Desa',
             'kecamatan' => 'Kecamatan',
             'kabupaten' => 'Kabupaten',
             'provinsi' => 'Provinsi',
             'domisili' => 'Domisili',
             'kode_pos' => 'Kode Pos',
             'nomer_telepon' => 'Nomer Telepon',
-            'jml_saudara_kandung' => 'Jml Saudara Kandung',
-            'anak_ke' => 'Anak Ke',
-            'dari_berapa_bersaudara' => 'Dari Berapa Bersaudara',
-            'kodam' => 'Kodam',
-            'kodim' => 'Kodim',
-            'matra' => 'Matra',
-            'pendidikan_terakhir' => 'Pendidikan Terakhir',
-            'nama_perguruan_tinggi_sekolah' => 'Nama Perguruan Tinggi Sekolah',
-            'status_perguruan_tinggi_sekolah' => 'Status Perguruan Tinggi Sekolah',
-            'program_studi_jurusan' => 'Program Studi Jurusan',
-            'akreditasi' => 'Akreditasi',
-            'ipk_nilai_un' => 'Ipk Nilai Un',
+            'jumlah_saudara_kandung' => 'Jumlah Saudara Kandung',
+            'anak_ke_berapa' => 'Anak Ke Berapa',
+            'dari_jumlah_bersaudara' => 'Dari Jumlah Bersaudara',
         ];
     }
 
@@ -86,13 +102,12 @@ class RegistrasiForm extends Model
     public function daftar()
     {   
        
-        $regkomcad = new RegistrasiKomcad();
+        $datapribadi = new DataPribadi();
 		
-		if ($model->load(Yii::$app->request->post()) && $model->save()) {
-			$regkomcad->no_register = "REG-".time();
-			$this->redirect(['detail_registrasi', 'id' => $model->no_registrasi]);
+		if ($datapribadi->load(Yii::$app->request->post())) {
+			$datapribadi->no_register = "REG-".time();
 			
-            return $regkomcad->save();  
+            return $datapribadi->save();  
 		}
 
 	}
