@@ -36,7 +36,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'tanggal_lahir_ibu')->textInput() ?>
 
-    <?= $form->field($model, 'alamat_ibu')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'alamat_ibu')->textarea(['rows' => 6]) ?>
 
     <?= $form->field($model, 'nomor_telepon_ibu')->textInput(['maxlength' => true]) ?>
 

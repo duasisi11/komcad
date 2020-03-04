@@ -44,11 +44,10 @@ class Orangtua extends \yii\db\ActiveRecord
         return [
             [['nik_ayah', 'nik_ibu', 'no_registrasi'], 'required'],
             [['tanggal_lahir_ayah', 'tempat_lahir_ibu', 'tanggal_lahir_ibu'], 'safe'],
-            [['alamat_ayah'], 'string'],
+            [['alamat_ayah', 'alamat_ibu'], 'string'],
             [['nama_ayah', 'nik_ayah', 'pekerjaan_ayah', 'tempat_lahir_ayah', 'nik_ibu', 'nomor_telepon_ibu', 'no_registrasi'], 'string', 'max' => 50],
             [['nomor_telepon_ayah'], 'string', 'max' => 20],
             [['nama_ibu', 'pekerjaan_ibu'], 'string', 'max' => 30],
-            [['alamat_ibu'], 'string', 'max' => 40],
             [['no_registrasi'], 'exist', 'skipOnError' => true, 'targetClass' => DataPribadi::className(), 'targetAttribute' => ['no_registrasi' => 'no_registrasi']],
         ];
     }

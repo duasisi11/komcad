@@ -42,7 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'pekerjaan_ibu',
             'tempat_lahir_ibu',
             'tanggal_lahir_ibu',
-            'alamat_ibu',
+            'alamat_ibu:ntext',
             'nomor_telepon_ibu',
             'no_registrasi',
         ],

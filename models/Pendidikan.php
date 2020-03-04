@@ -13,7 +13,7 @@ use Yii;
  * @property string|null $status_perguruan_tinggi_sekolah
  * @property string|null $program_studi_jurusan
  * @property string|null $akreditasi
- * @property int|null $ipk_nilai_un
+ * @property float|null $ipk_nilai_un
  * @property string $no_registrasi
  *
  * @property DataPribadi $noRegistrasi
@@ -34,7 +34,7 @@ class Pendidikan extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['ipk_nilai_un'], 'integer'],
+            [['ipk_nilai_un'], 'number'],
             [['no_registrasi'], 'required'],
             [['pendidikan_terakhir', 'nama_perguruan_tinggi_sekolah', 'status_perguruan_tinggi_sekolah', 'program_studi_jurusan', 'akreditasi'], 'string', 'max' => 80],
             [['no_registrasi'], 'string', 'max' => 50],

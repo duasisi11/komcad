@@ -22,7 +22,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'akreditasi')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'ipk_nilai_un')->textInput() ?>
+    <?= $form->field($model, 'ipk_nilai_un')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'no_registrasi')->textInput(['maxlength' => true]) ?>
 

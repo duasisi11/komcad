@@ -137,11 +137,14 @@ class SiteController extends Controller
 		 $model = new RegistrasiForm();
 
         $title = 'Pendaftaran Komponen Cadangan';
-
+		//var_dump($model->load(Yii::$app->request->post()));exit;
+		
         if ($model->load(Yii::$app->request->post()) && $model->daftar()) {
-            //---Melakukan penambahan setFlash pada session dengan nama 'daftarFormSubmitted'
-                Yii::$app->session->setFlash('daftarFormSubmitted');
-                return $this->refresh();
+			
+            //Melakukan penambahan setFlash pada session dengan nama 'daftarFormSubmitted'
+            Yii::$app->session->setFlash('daftarFormSubmitted');
+            
+			return $this->refresh();
         }
 
         return $this->render('registrasi', [
