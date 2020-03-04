@@ -80,14 +80,13 @@ $this->params['breadcrumbs'][] = $this->title;
 											</div>
 										</div>
 									</div>
-									<form role="form">
+									<!--<form role="form">-->
+									<?php $form = ActiveForm::begin(); ?>
 										<div class="row setup-content" id="step-1">
 											<div class="col-xs-12">
 												<div class="col-md-12">
 													<h3> Data Pribadi</h3>
 													
-														<?php $form = ActiveForm::begin(); ?>
-														<?= $form->field($model, 'no_registrasi')->textInput(['maxlength' => true]) ?>
 														<?= $form->field($model, 'nama_lengkap')->textInput(['maxlength' => true]) ?>
 														<?= $form->field($model, 'nik')->textInput(['maxlength' => true]) ?>
 														<?= $form->field($model, 'tempat_lahir')->textInput(['maxlength' => true]) ?>
@@ -109,12 +108,6 @@ $this->params['breadcrumbs'][] = $this->title;
 														<?= $form->field($model, 'jumlah_saudara_kandung')->textInput() ?>
 														<?= $form->field($model, 'anak_ke_berapa')->textInput() ?>
 														<?= $form->field($model, 'dari_jumlah_bersaudara')->textInput() ?>
-
-														<div class="form-group">
-															<?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
-														</div>
-														<?php ActiveForm::end(); ?>
-													
 													
 													<button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
 												</div>
@@ -123,15 +116,24 @@ $this->params['breadcrumbs'][] = $this->title;
 										<div class="row setup-content" id="step-2">
 											<div class="col-xs-12">
 												<div class="col-md-12">
-													<h3> Step 2</h3>
-													<div class="form-group">
-														<label class="control-label">Company Name</label>
-														<input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Name" />
-													</div>
-													<div class="form-group">
-														<label class="control-label">Company Address</label>
-														<input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Address"  />
-													</div>
+													<h3> Data Orang Tua</h3>
+													
+													<?= $form->field($model, 'nama_ayah')->textInput(['maxlength' => true]) ?>
+													<?= $form->field($model, 'nik_ayah')->textInput(['maxlength' => true]) ?>
+													<?= $form->field($model, 'pekerjaan_ayah')->textInput(['maxlength' => true]) ?>
+													<?= $form->field($model, 'tempat_lahir_ayah')->textInput(['maxlength' => true]) ?>
+													<?= $form->field($model, 'tanggal_lahir_ayah')->textInput() ?>
+													<?= $form->field($model, 'alamat_ayah')->textarea(['rows' => 6]) ?>
+													<?= $form->field($model, 'nomor_telepon_ayah')->textInput(['maxlength' => true]) ?>
+													<?= $form->field($model, 'nama_ibu')->textInput(['maxlength' => true]) ?>
+													<?= $form->field($model, 'nik_ibu')->textInput(['maxlength' => true]) ?>
+													<?= $form->field($model, 'pekerjaan_ibu')->textInput(['maxlength' => true]) ?>
+													<?= $form->field($model, 'tempat_lahir_ibu')->textInput() ?>
+													<?= $form->field($model, 'tanggal_lahir_ibu')->textInput() ?>
+													<?= $form->field($model, 'alamat_ibu')->textInput(['maxlength' => true]) ?>
+													<?= $form->field($model, 'nomor_telepon_ibu')->textInput(['maxlength' => true]) ?>
+													
+													
 													<button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
 												</div>
 											</div>
@@ -139,15 +141,11 @@ $this->params['breadcrumbs'][] = $this->title;
 										<div class="row setup-content" id="step-3">
 											<div class="col-xs-12">
 												<div class="col-md-12">
-													<h3> Step 3</h3>
-													<div class="form-group">
-														<label class="control-label">Company Name</label>
-														<input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Name" />
-													</div>
-													<div class="form-group">
-														<label class="control-label">Company Address</label>
-														<input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Address"  />
-													</div>
+													<h3>Data Wilayah dan Matra</h3>
+													
+													<?= $form->field($model, 'kodam')->textInput(['maxlength' => true]) ?>
+													<?= $form->field($model, 'kodim')->textInput(['maxlength' => true]) ?>
+													<?= $form->field($model, 'matra')->dropDownList([ 'Darat' => 'Darat', 'Laut' => 'Laut', 'Udara' => 'Udara', ], ['prompt' => '']) ?>
 													<button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
 												</div>
 											</div>
@@ -155,15 +153,15 @@ $this->params['breadcrumbs'][] = $this->title;
 										<div class="row setup-content" id="step-4">
 											<div class="col-xs-12">
 												<div class="col-md-12">
-													<h3> Step 4</h3>
-													<div class="form-group">
-														<label class="control-label">Company Name</label>
-														<input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Name" />
-													</div>
-													<div class="form-group">
-														<label class="control-label">Company Address</label>
-														<input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Address"  />
-													</div>
+													<h3>Data Pendidikan</h3>
+													
+													<?= $form->field($model, 'pendidikan_terakhir')->textInput(['maxlength' => true]) ?>
+													<?= $form->field($model, 'nama_perguruan_tinggi_sekolah')->textInput(['maxlength' => true]) ?>
+													<?= $form->field($model, 'status_perguruan_tinggi_sekolah')->textInput(['maxlength' => true]) ?>
+													<?= $form->field($model, 'program_studi_jurusan')->textInput(['maxlength' => true]) ?>
+													<?= $form->field($model, 'akreditasi')->textInput(['maxlength' => true]) ?>
+													<?= $form->field($model, 'ipk_nilai_un')->textInput() ?>
+													
 													<button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
 												</div>
 											</div>
@@ -171,12 +169,19 @@ $this->params['breadcrumbs'][] = $this->title;
 										<div class="row setup-content" id="step-5">
 											<div class="col-xs-12">
 												<div class="col-md-12">
-													<h3> Step 5</h3>
-													<button class="btn btn-success btn-lg pull-right" type="submit">Finish!</button>
+													<h3>Upload Data Lampiran</h3>
+													
+													
+													<!--<button class="btn btn-success btn-lg pull-right" type="submit">Finish!</button>-->
+													<div class="form-group">
+														<?= Html::submitButton('Daftar', ['class' => 'btn btn-success btn-lg pull-right', 'name' => 'daftar-button']) ?>
+													</div>
 												</div>
 											</div>
 										</div>
-									</form>
+										
+									<?php ActiveForm::end(); ?>
+									<!--</form>-->
 									
                                 </div>
                         </div>

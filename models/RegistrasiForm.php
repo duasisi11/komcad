@@ -38,6 +38,35 @@ class RegistrasiForm extends Model
 	 public $jumlah_saudara_kandung;
 	 public $anak_ke_berapa;
 	 public $dari_jumlah_bersaudara;
+	 
+	
+	 public $nama_ayah;
+	 public $nik_ayah;
+	 public $pekerjaan_ayah;
+	 public $tempat_lahir_ayah;
+	 public $tanggal_lahir_ayah;
+	 public $alamat_ayah;
+	 public $nomor_telepon_ayah;
+	 public $nama_ibu;
+	 public $nik_ibu;
+	 public $pekerjaan_ibu;
+	 public $tempat_lahir_ibu;
+	 public $tanggal_lahir_ibu;
+	 public $alamat_ibu;
+	 public $nomor_telepon_ibu;
+	 
+     public $kodam;
+     public $kodim;
+     public $matra;
+	 
+	 public $pendidikan_terakhir;
+	 public $nama_perguruan_tinggi_sekolah;
+     public $status_perguruan_tinggi_sekolah;
+     public $program_studi_jurusan;
+     public $akreditasi;
+     public $ipk_nilai_un;
+
+ 
 	 public $verifyCode;
 	 
  

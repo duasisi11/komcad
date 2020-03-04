@@ -14,11 +14,10 @@ use yii\helpers\Url;
     <div class="col-md-3 col-sm-6 pull-right"> 
             	<div class="footerwidget"> 
                          <h4>Informasi Kontak</h4> 
-                        <p>Badiklat Kemhan</p>
+                        <p>Kemhan RI</p>
             <div class="contact-info"> 
-            <i class="fa fa-map-marker"></i> Jl. Salemba Raya No. 14 Jakarta Pusat<br>
-            <i class="fa fa-phone"></i> 021-3107730/32<br>
-            Fax : 021-3107948
+            <i class="fa fa-map-marker"></i> Jalan Medan Merdeka Barat No. 13-14, Jakarta Pusat 10110<br>
+            <i class="fa fa-phone"></i> 021-382050<br>
               </div> 
                 </div><!-- end widget --> 
     </div>

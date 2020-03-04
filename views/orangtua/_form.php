@@ -18,11 +18,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'pekerjaan_ayah')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'tempat_lahir')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'tempat_lahir_ayah')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'tanggal_lahir')->textInput() ?>
+    <?= $form->field($model, 'tanggal_lahir_ayah')->textInput() ?>
 
-    <?= $form->field($model, 'alamat')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'alamat_ayah')->textarea(['rows' => 6]) ?>
 
     <?= $form->field($model, 'nomor_telepon_ayah')->textInput(['maxlength' => true]) ?>
 
@@ -38,7 +38,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'alamat_ibu')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'no_telepon_ibu')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'nomor_telepon_ibu')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'no_registrasi')->textInput(['maxlength' => true]) ?>
 
