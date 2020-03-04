@@ -1,0 +1,85 @@
+CREATE TABLE data_pribadi(
+    no_registrasi varchar(50) not null,
+    nama_lengkap varchar(50),
+    nik varchar(50) not null,
+    tempat_lahir varchar(60),
+    tanggal_lahir date,
+    jenis_kelamin enum('Laki-laki','Perempuan'),
+    agama varchar(30),
+    suku varchar(50),
+    kewarganegaraan varchar(50),
+    tinggi_badan int(11),
+    berat_badan int(11),
+    alamat text,
+    kelurahan_desa varchar(100),
+    kecamatan varchar(100),
+    kabupaten varchar(100),
+    provinsi varchar(100),
+    domisili varchar(100),
+    kode_pos varchar(30),
+    nomer_telepon varchar(30),
+    jumlah_saudara_kandung int(11),
+    anak_ke_berapa int(11),
+    dari_jumlah_bersaudara int(11),
+    PRIMARY KEY(no_registrasi)); 
+    
+create table orangtua(
+id_orangtua int(11) not null auto_increment,
+nama_ayah varchar(50),
+nik_ayah varchar(50) not null,
+pekerjaan_ayah varchar(50),
+tempat_lahir varchar(50),
+tanggal_lahir date,
+alamat text,
+nomor_telepon_ayah varchar(20),
+nama_ibu varchar(30),
+nik_ibu varchar(50) not null,
+pekerjaan_ibu varchar(30),
+tempat_lahir_ibu date,
+tanggal_lahir_ibu date,
+alamat_ibu varchar(40),
+no_telepon_ibu varchar(50),
+no_registrasi varchar(50) not null,
+foreign key (no_registrasi) references data_pribadi(no_registrasi),
+primary key (id_orangtua));
+
+create table wilayah_matra(
+    id_wilayah_matra int(11) not null auto_increment,
+    kodam varchar(100),
+    kodim varchar(100),
+    matra enum('Darat','Laut','Udara'),
+    no_registrasi varchar(50) not null,
+    foreign key (no_registrasi) references data_pribadi(no_registrasi),
+    primary key (id_wilayah_matra));
+
+create table pendidikan(
+    id_pendidikan int(11) not null auto_increment,
+    pendidikan_terakhir varchar(80),
+    nama_perguruan_tinggi_sekolah varchar(80),
+    status_perguruan_tinggi_sekolah varchar(80),
+    program_studi_jurusan varchar(80),
+    akreditasi varchar(80),
+    ipk_nilai_un int(11),
+    no_registrasi varchar(50) not null,
+    foreign key (no_registrasi) references data_pribadi(no_registrasi),
+    primary key (id_pendidikan));
+
+
+create table lampiran(
+id_lampiran int(11) not null auto_increment,
+surat_keterangan_sehat varchar(80),
+ktp varchar(80),
+kk varchar(80),
+ijazah_transkrip_nilai varchar(80),
+skck varchar(80),
+foto varchar(80),
+no_registrasi varchar(50) not null,
+foreign key (no_registrasi) references data_pribadi(no_registrasi),
+primary key(id_lampiran));
+
+
+
+    
+    
+    
+
