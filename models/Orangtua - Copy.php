@@ -42,12 +42,7 @@ class Orangtua extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            //[['nik_ayah', 'nik_ibu', 'no_registrasi'], 'required'],
-            [['nik_ayah', 'nik_ibu'], 'required'],
-			
-			[['nama_ayah','pekerjaan_ayah', 'tempat_lahir_ayah','tanggal_lahir_ayah', 'alamat_ayah', 'nomor_telepon_ayah',
-			  'nama_ibu','pekerjaan_ibu', 'tempat_lahir_ibu', 'tanggal_lahir_ibu', 'alamat_ibu', 'nomor_telepon_ibu'], 'safe'],
-			  
+            [['nik_ayah', 'nik_ibu', 'no_registrasi'], 'required'],
             [['tanggal_lahir_ayah', 'tempat_lahir_ibu', 'tanggal_lahir_ibu'], 'safe'],
             [['alamat_ayah', 'alamat_ibu'], 'string'],
             [['nama_ayah', 'nik_ayah', 'pekerjaan_ayah', 'tempat_lahir_ayah', 'nik_ibu', 'nomor_telepon_ibu', 'no_registrasi'], 'string', 'max' => 50],

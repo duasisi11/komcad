@@ -31,10 +31,8 @@ class WilayahMatra extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-			[['kodam','kodim', 'matra'], 'safe'],
-			
             [['matra'], 'string'],
-            //[['no_registrasi'], 'required'],
+            [['no_registrasi'], 'required'],
             [['kodam', 'kodim'], 'string', 'max' => 100],
             [['no_registrasi'], 'string', 'max' => 50],
             [['no_registrasi'], 'exist', 'skipOnError' => true, 'targetClass' => DataPribadi::className(), 'targetAttribute' => ['no_registrasi' => 'no_registrasi']],

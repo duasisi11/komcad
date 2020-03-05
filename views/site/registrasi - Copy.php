@@ -89,27 +89,27 @@ $this->params['breadcrumbs'][] = $this->title;
 												<div class="col-md-12">
 													<h3>Data Pribadi</h3>
 													<br>
-														<?= $form->field($datapribadi_model, 'nama_lengkap')->textInput(['maxlength' => true]) ?>
-														<?= $form->field($datapribadi_model, 'nik')->textInput(['maxlength' => true]) ?>
-														<?= $form->field($datapribadi_model, 'tempat_lahir')->textInput(['maxlength' => true]) ?>
-														<?= $form->field($datapribadi_model, 'tanggal_lahir')->textInput() ?>
-														<?= $form->field($datapribadi_model, 'jenis_kelamin')->dropDownList([ 'Pria' => 'Pria', 'Wanita' => 'Wanita', ], ['prompt' => '']) ?>
-														<?= $form->field($datapribadi_model, 'agama')->textInput(['maxlength' => true]) ?>
-														<?= $form->field($datapribadi_model, 'suku')->textInput(['maxlength' => true]) ?>
-														<?= $form->field($datapribadi_model, 'kewarganegaraan')->textInput(['maxlength' => true]) ?>
-														<?= $form->field($datapribadi_model, 'tinggi_badan')->textInput() ?>
-														<?= $form->field($datapribadi_model, 'berat_badan')->textInput() ?>
-														<?= $form->field($datapribadi_model, 'alamat')->textarea(['rows' => 2]) ?>
-														<?= $form->field($datapribadi_model, 'kelurahan_desa')->textInput(['maxlength' => true]) ?>
-														<?= $form->field($datapribadi_model, 'kecamatan')->textInput(['maxlength' => true]) ?>
-														<?= $form->field($datapribadi_model, 'kabupaten')->textInput(['maxlength' => true]) ?>
-														<?= $form->field($datapribadi_model, 'provinsi')->textInput(['maxlength' => true]) ?>
-														<?= $form->field($datapribadi_model, 'domisili')->textInput(['maxlength' => true]) ?>
-														<?= $form->field($datapribadi_model, 'kode_pos')->textInput(['maxlength' => true]) ?>
-														<?= $form->field($datapribadi_model, 'nomer_telepon')->textInput(['maxlength' => true]) ?>
-														<?= $form->field($datapribadi_model, 'jumlah_saudara_kandung')->textInput() ?>
-														<?= $form->field($datapribadi_model, 'anak_ke_berapa')->textInput() ?>
-														<?= $form->field($datapribadi_model, 'dari_jumlah_bersaudara')->textInput() ?>
+														<?= $form->field($model, 'nama_lengkap')->textInput(['maxlength' => true]) ?>
+														<?= $form->field($model, 'nik')->textInput(['maxlength' => true]) ?>
+														<?= $form->field($model, 'tempat_lahir')->textInput(['maxlength' => true]) ?>
+														<?= $form->field($model, 'tanggal_lahir')->textInput() ?>
+														<?= $form->field($model, 'jenis_kelamin')->dropDownList([ 'Pria' => 'Pria', 'Wanita' => 'Wanita', ], ['prompt' => '']) ?>
+														<?= $form->field($model, 'agama')->textInput(['maxlength' => true]) ?>
+														<?= $form->field($model, 'suku')->textInput(['maxlength' => true]) ?>
+														<?= $form->field($model, 'kewarganegaraan')->textInput(['maxlength' => true]) ?>
+														<?= $form->field($model, 'tinggi_badan')->textInput() ?>
+														<?= $form->field($model, 'berat_badan')->textInput() ?>
+														<?= $form->field($model, 'alamat')->textarea(['rows' => 2]) ?>
+														<?= $form->field($model, 'kelurahan_desa')->textInput(['maxlength' => true]) ?>
+														<?= $form->field($model, 'kecamatan')->textInput(['maxlength' => true]) ?>
+														<?= $form->field($model, 'kabupaten')->textInput(['maxlength' => true]) ?>
+														<?= $form->field($model, 'provinsi')->textInput(['maxlength' => true]) ?>
+														<?= $form->field($model, 'domisili')->textInput(['maxlength' => true]) ?>
+														<?= $form->field($model, 'kode_pos')->textInput(['maxlength' => true]) ?>
+														<?= $form->field($model, 'nomer_telepon')->textInput(['maxlength' => true]) ?>
+														<?= $form->field($model, 'jumlah_saudara_kandung')->textInput() ?>
+														<?= $form->field($model, 'anak_ke_berapa')->textInput() ?>
+														<?= $form->field($model, 'dari_jumlah_bersaudara')->textInput() ?>
 													
 													<button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
 												</div>
@@ -120,20 +120,20 @@ $this->params['breadcrumbs'][] = $this->title;
 												<div class="col-md-12">
 													<h3>Data Orang Tua</h3>
 													<br>
-													<?= $form->field($orangtua_model, 'nama_ayah')->textInput(['maxlength' => true]) ?>
-													<?= $form->field($orangtua_model, 'nik_ayah')->textInput(['maxlength' => true]) ?>
-													<?= $form->field($orangtua_model, 'pekerjaan_ayah')->textInput(['maxlength' => true]) ?>
-													<?= $form->field($orangtua_model, 'tempat_lahir_ayah')->textInput(['maxlength' => true]) ?>
-													<?= $form->field($orangtua_model, 'tanggal_lahir_ayah')->textInput() ?>
-													<?= $form->field($orangtua_model, 'alamat_ayah')->textarea(['rows' => 2]) ?>
-													<?= $form->field($orangtua_model, 'nomor_telepon_ayah')->textInput(['maxlength' => true]) ?>
-													<?= $form->field($orangtua_model, 'nama_ibu')->textInput(['maxlength' => true]) ?>
-													<?= $form->field($orangtua_model, 'nik_ibu')->textInput(['maxlength' => true]) ?>
-													<?= $form->field($orangtua_model, 'pekerjaan_ibu')->textInput(['maxlength' => true]) ?>
-													<?= $form->field($orangtua_model, 'tempat_lahir_ibu')->textInput() ?>
-													<?= $form->field($orangtua_model, 'tanggal_lahir_ibu')->textInput() ?>
-													<?= $form->field($orangtua_model, 'alamat_ibu')->textarea(['rows' => 2]) ?>
-													<?= $form->field($orangtua_model, 'nomor_telepon_ibu')->textInput(['maxlength' => true]) ?>
+													<?= $form->field($model, 'nama_ayah')->textInput(['maxlength' => true]) ?>
+													<?= $form->field($model, 'nik_ayah')->textInput(['maxlength' => true]) ?>
+													<?= $form->field($model, 'pekerjaan_ayah')->textInput(['maxlength' => true]) ?>
+													<?= $form->field($model, 'tempat_lahir_ayah')->textInput(['maxlength' => true]) ?>
+													<?= $form->field($model, 'tanggal_lahir_ayah')->textInput() ?>
+													<?= $form->field($model, 'alamat_ayah')->textarea(['rows' => 2]) ?>
+													<?= $form->field($model, 'nomor_telepon_ayah')->textInput(['maxlength' => true]) ?>
+													<?= $form->field($model, 'nama_ibu')->textInput(['maxlength' => true]) ?>
+													<?= $form->field($model, 'nik_ibu')->textInput(['maxlength' => true]) ?>
+													<?= $form->field($model, 'pekerjaan_ibu')->textInput(['maxlength' => true]) ?>
+													<?= $form->field($model, 'tempat_lahir_ibu')->textInput() ?>
+													<?= $form->field($model, 'tanggal_lahir_ibu')->textInput() ?>
+													<?= $form->field($model, 'alamat_ibu')->textarea(['rows' => 2]) ?>
+													<?= $form->field($model, 'nomor_telepon_ibu')->textInput(['maxlength' => true]) ?>
 													
 													
 													<button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
@@ -145,9 +145,9 @@ $this->params['breadcrumbs'][] = $this->title;
 												<div class="col-md-12">
 													<h3>Data Wilayah dan Matra</h3>
 													<br>
-													<?= $form->field($wilayahMatra_model, 'kodam')->textInput(['maxlength' => true]) ?>
-													<?= $form->field($wilayahMatra_model, 'kodim')->textInput(['maxlength' => true]) ?>
-													<?= $form->field($wilayahMatra_model, 'matra')->dropDownList([ 'Darat' => 'Darat', 'Laut' => 'Laut', 'Udara' => 'Udara', ], ['prompt' => '']) ?>
+													<?= $form->field($model, 'kodam')->textInput(['maxlength' => true]) ?>
+													<?= $form->field($model, 'kodim')->textInput(['maxlength' => true]) ?>
+													<?= $form->field($model, 'matra')->dropDownList([ 'Darat' => 'Darat', 'Laut' => 'Laut', 'Udara' => 'Udara', ], ['prompt' => '']) ?>
 													<button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
 												</div>
 											</div>
@@ -157,12 +157,12 @@ $this->params['breadcrumbs'][] = $this->title;
 												<div class="col-md-12">
 													<h3>Data Pendidikan</h3>
 													<br>
-													<?= $form->field($pendidikan_model, 'pendidikan_terakhir')->textInput(['maxlength' => true]) ?>
-													<?= $form->field($pendidikan_model, 'nama_perguruan_tinggi_sekolah')->textInput(['maxlength' => true]) ?>
-													<?= $form->field($pendidikan_model, 'status_perguruan_tinggi_sekolah')->textInput(['maxlength' => true]) ?>
-													<?= $form->field($pendidikan_model, 'program_studi_jurusan')->textInput(['maxlength' => true]) ?>
-													<?= $form->field($pendidikan_model, 'akreditasi')->textInput(['maxlength' => true]) ?>
-													<?= $form->field($pendidikan_model, 'ipk_nilai_un')->textInput() ?>
+													<?= $form->field($model, 'pendidikan_terakhir')->textInput(['maxlength' => true]) ?>
+													<?= $form->field($model, 'nama_perguruan_tinggi_sekolah')->textInput(['maxlength' => true]) ?>
+													<?= $form->field($model, 'status_perguruan_tinggi_sekolah')->textInput(['maxlength' => true]) ?>
+													<?= $form->field($model, 'program_studi_jurusan')->textInput(['maxlength' => true]) ?>
+													<?= $form->field($model, 'akreditasi')->textInput(['maxlength' => true]) ?>
+													<?= $form->field($model, 'ipk_nilai_un')->textInput() ?>
 													
 													<button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
 												</div>
@@ -174,17 +174,17 @@ $this->params['breadcrumbs'][] = $this->title;
 													<h3>Upload Data Lampiran</h3>
 													<br>
 													
-													<?= $form->field($lampiran_model, 'surat_keterangan_sehat')->fileInput(['class' => 'form-control']) ?>
+													<?= $form->field($model, 'surat_keterangan_sehat')->fileInput(['class' => 'form-control']) ?>
 													
-													<?= $form->field($lampiran_model, 'ktp')->fileInput(['class' => 'form-control']) ?>
+													<?= $form->field($model, 'ktp')->fileInput(['class' => 'form-control']) ?>
 													
-													<?= $form->field($lampiran_model, 'kk')->fileInput(['class' => 'form-control']) ?>
+													<?= $form->field($model, 'kk')->fileInput(['class' => 'form-control']) ?>
 														
-													<?= $form->field($lampiran_model, 'ijazah_transkrip_nilai')->fileInput(['class' => 'form-control']) ?>
+													<?= $form->field($model, 'ijazah_transkrip_nilai')->fileInput(['class' => 'form-control']) ?>
 													
-													<?= $form->field($lampiran_model, 'skck')->fileInput(['class' => 'form-control']) ?>
+													<?= $form->field($model, 'skck')->fileInput(['class' => 'form-control']) ?>
 													
-													<?= $form->field($lampiran_model, 'foto')->fileInput(['class' => 'form-control']) ?>
+													<?= $form->field($model, 'foto')->fileInput(['class' => 'form-control']) ?>
 													
 													<span class="product-description pull-left">
 														<small>File dokumen harus bertipe *.pdf atau *.jpg </small><br>

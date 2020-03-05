@@ -34,14 +34,10 @@ class Lampiran extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-			//[['no_registrasi'], 'required'],
-			
-            [['surat_keterangan_sehat'], 'file', 'skipOnEmpty' => false, 'extensions' => 'pdf'],
-			[['ktp'], 'file', 'skipOnEmpty' => false, 'extensions' => 'pdf'],
-			[['kk'], 'file', 'skipOnEmpty' => false, 'extensions' => 'pdf'],
-			[['ijazah_transkrip_nilai'], 'file', 'skipOnEmpty' => false, 'extensions' => 'pdf'],
-			[['skck'], 'file', 'skipOnEmpty' => false, 'extensions' => 'pdf'],
-			[['foto'], 'file', 'skipOnEmpty' => false, 'extensions' => 'jpg,jpeg,png'],
+            [['no_registrasi'], 'required'],
+            [['surat_keterangan_sehat', 'ktp', 'kk', 'ijazah_transkrip_nilai', 'skck', 'foto'], 'string', 'max' => 80],
+            [['no_registrasi'], 'string', 'max' => 50],
+            [['no_registrasi'], 'exist', 'skipOnError' => true, 'targetClass' => DataPribadi::className(), 'targetAttribute' => ['no_registrasi' => 'no_registrasi']],
         ];
     }
 

@@ -24,9 +24,9 @@ use yii\helpers\Url;
 
 					<?php 
                         if(Yii::$app->request->url == Url::toRoute('site/registrasi')){
-                            echo '<li class="active"><a href="'.Url::toRoute('site/registrasi').'">Registrasi Komcad</a></li>';
+                            echo '<li class="active"><a href="'.Url::toRoute('site/registrasi').'">Pendaftaran Komcad</a></li>';
                         }else{
-                            echo '<li><a href="'.Url::toRoute('site/registrasi').'">Registrasi Komcad</a></li>';
+                            echo '<li><a href="'.Url::toRoute('site/registrasi').'">Pendaftaran Komcad</a></li>';
                         }
                     ?>
 

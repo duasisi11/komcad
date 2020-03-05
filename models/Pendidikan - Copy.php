@@ -34,10 +34,8 @@ class Pendidikan extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-			[['pendidikan_terakhir','nama_perguruan_tinggi_sekolah', 'status_perguruan_tinggi_sekolah','program_studi_jurusan', 'akreditasi', 'ipk_nilai_un'], 'safe'],
-			
             [['ipk_nilai_un'], 'number'],
-            //[['no_registrasi'], 'required'],
+            [['no_registrasi'], 'required'],
             [['pendidikan_terakhir', 'nama_perguruan_tinggi_sekolah', 'status_perguruan_tinggi_sekolah', 'program_studi_jurusan', 'akreditasi'], 'string', 'max' => 80],
             [['no_registrasi'], 'string', 'max' => 50],
             [['no_registrasi'], 'exist', 'skipOnError' => true, 'targetClass' => DataPribadi::className(), 'targetAttribute' => ['no_registrasi' => 'no_registrasi']],

@@ -51,13 +51,7 @@ class DataPribadi extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            //[['no_registrasi', 'nik'], 'required'],
-            [['nik'], 'required'],
-			
-			[['nama_lengkap', 'tempat_lahir', 'tanggal_lahir', 'jenis_kelamin', 'agama', 'suku', 'kewarganegaraan', 'tinggi_badan',
-			'berat_badan', 'alamat', 'kelurahan_desa', 'kecamatan','kabupaten', 'provinsi', 'domisili','kode_pos', 'nomer_telepon',
-			'jumlah_saudara_kandung', 'anak_ke_berapa', 'dari_jumlah_bersaudara'], 'safe'],
-			
+            [['no_registrasi', 'nik'], 'required'],
             [['tanggal_lahir'], 'safe'],
             [['jenis_kelamin', 'alamat'], 'string'],
             [['tinggi_badan', 'berat_badan', 'jumlah_saudara_kandung', 'anak_ke_berapa', 'dari_jumlah_bersaudara'], 'integer'],
