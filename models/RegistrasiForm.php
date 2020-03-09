@@ -203,6 +203,26 @@ class RegistrasiForm extends Model
             //because null == false 
             return null;
         }else{
+			$lampiran = new Lampiran();
+			
+			$this->surat_keterangan_sehat->saveAs('uploads/dokumen/1SUKETSHT/' . $no_registrasi.'_SUKETSHT.' . $this->surat_keterangan_sehat->extension);
+			$this->ktp->saveAs('uploads/dokumen/2KTP/' . $no_registrasi.'_KTP.' . $this->ktp->extension);
+			$this->kk->saveAs('uploads/dokumen/3KK/' . $no_registrasi.'_KK.' . $this->kk->extension);
+			$this->ijazah_transkrip_nilai->saveAs('uploads/dokumen/4IJAZAH/' . $no_registrasi.'_IJAZAH.' . $this->ijazah_transkrip_nilai->extension);
+			$this->skck->saveAs('uploads/dokumen/5SKCK/' . $no_registrasi.'_SKCK.' . $this->skck->extension);
+			$this->foto->saveAs('uploads/dokumen/6FOTO/' . $no_registrasi.'_FOTO.' . $this->foto->extension);
+			
+				$lampiran->surat_keterangan_sehat=$no_registrasi.'_SUKETSHT.' . $this->surat_keterangan_sehat->extension;
+				$lampiran->ktp=$no_registrasi.'_KTP.' . $this->ktp->extension;
+				$lampiran->kk=$no_registrasi.'_KK.' . $this->kk->extension;
+				$lampiran->ijazah_transkrip_nilai=$no_registrasi.'_IJAZAH.' . $this->ijazah_transkrip_nilai->extension;
+				$lampiran->skck=$no_registrasi.'_SKCK.' . $this->skck->extension;
+				$lampiran->foto=$no_registrasi.'_FOTO.' . $this->foto->extension;
+				
+			$lampiran->no_registrasi=$no_registrasi;
+			
+			$lampiran->save();
+			
 			$datapribadi = new DataPribadi();
 				//var_dump($this->nama_lengkap);exit;
 				//var_dump($datapribadi->errors);exit;
@@ -269,29 +289,6 @@ class RegistrasiForm extends Model
 			 
 				$pendidikan->no_registrasi=$no_registrasi;
 			$pendidikan->save(); 
-			
-			
-			$lampiran = new Lampiran();
-			
-			$this->surat_keterangan_sehat->saveAs('uploads/dokumen/1SUKETSHT/' . $no_registrasi.'_SUKETSHT.' . $this->surat_keterangan_sehat->extension);
-			$this->ktp->saveAs('uploads/dokumen/2KTP/' . $no_registrasi.'_KTP.' . $this->ktp->extension);
-			$this->kk->saveAs('uploads/dokumen/3KK/' . $no_registrasi.'_KK.' . $this->kk->extension);
-			$this->ijazah_transkrip_nilai->saveAs('uploads/dokumen/4IJAZAH/' . $no_registrasi.'_IJAZAH.' . $this->ijazah_transkrip_nilai->extension);
-			$this->skck->saveAs('uploads/dokumen/5SKCK/' . $no_registrasi.'_SKCK.' . $this->skck->extension);
-			$this->foto->saveAs('uploads/dokumen/6FOTO/' . $no_registrasi.'_FOTO.' . $this->foto->extension);
-			
-				$lampiran->surat_keterangan_sehat=$no_registrasi.'_SUKETSHT.' . $this->surat_keterangan_sehat->extension;
-				$lampiran->ktp=$no_registrasi.'_KTP.' . $this->ktp->extension;
-				$lampiran->kk=$no_registrasi.'_KK.' . $this->kk->extension;
-				$lampiran->ijazah_transkrip_nilai=$no_registrasi.'_IJAZAH.' . $this->ijazah_transkrip_nilai->extension;
-				$lampiran->skck=$no_registrasi.'_SKCK.' . $this->skck->extension;
-				$lampiran->foto=$no_registrasi.'_FOTO.' . $this->foto->extension;
-				
-			$lampiran->no_registrasi=$no_registrasi;
-			
-			$lampiran->save();
-			
-		
 			return true;
 		}
 

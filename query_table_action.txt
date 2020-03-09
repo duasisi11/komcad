@@ -1,0 +1,136 @@
+delete from wilayah_matra; delete from pendidikan; delete from orangtua; delete from lampiran; delete from data_pribadi;
+
+drop table wilayah_matra; drop table pendidikan; drop table orangtua; drop table data_pribadi; drop table lampiran; 
+
+show tables;
+
+CREATE TABLE data_pribadi(
+    no_registrasi varchar(50) not null,
+    nama_lengkap varchar(50),
+    nik varchar(50) not null,
+    tempat_lahir varchar(60),
+    tanggal_lahir date,
+    jenis_kelamin enum('Pria','Wanita'),
+    agama varchar(30),
+    suku varchar(50),
+    kewarganegaraan varchar(50),
+    tinggi_badan int(11),
+    berat_badan int(11),
+    alamat text,
+    kelurahan_desa varchar(100),
+    kecamatan varchar(100),
+    kabupaten varchar(100),
+    provinsi varchar(100),
+    domisili varchar(100),
+    kode_pos varchar(30),
+    nomer_telepon varchar(30),
+    jumlah_saudara_kandung int(11),
+    anak_ke_berapa int(11),
+    dari_jumlah_bersaudara int(11),
+    surat_keterangan_sehat varchar(80),
+    ktp varchar(80),
+    kk varchar(80),
+    ijazah_transkrip_nilai varchar(80),
+    skck varchar(80),
+    foto varchar(80),
+    PRIMARY KEY(no_registrasi)); 
+    
+create table orangtua(
+	id_orangtua int(11) not null auto_increment,
+	nama_ayah varchar(50),
+	nik_ayah varchar(50) not null,
+	pekerjaan_ayah varchar(50),
+	tempat_lahir_ayah varchar(50),
+	tanggal_lahir_ayah date,
+	alamat_ayah text,
+	nomor_telepon_ayah varchar(20),
+	nama_ibu varchar(30),
+	nik_ibu varchar(50) not null,
+	pekerjaan_ibu varchar(30),
+	tempat_lahir_ibu date,
+	tanggal_lahir_ibu date,
+	alamat_ibu text,
+	nomor_telepon_ibu varchar(50),
+	no_registrasi varchar(50) not null,
+	foreign key (no_registrasi) references data_pribadi(no_registrasi),
+	primary key (id_orangtua));
+
+create table wilayah_matra(
+    id_wilayah_matra int(11) not null auto_increment,
+    kodam varchar(100),
+    kodim varchar(100),
+    matra enum('Darat','Laut','Udara'),
+    no_registrasi varchar(50) not null,
+    foreign key (no_registrasi) references data_pribadi(no_registrasi),
+    primary key (id_wilayah_matra));
+
+create table pendidikan(
+    id_pendidikan int(11) not null auto_increment,
+    pendidikan_terakhir varchar(80),
+    nama_perguruan_tinggi_sekolah varchar(80),
+    status_perguruan_tinggi_sekolah varchar(80),
+    program_studi_jurusan varchar(80),
+    akreditasi varchar(80),
+    ipk_nilai_un DECIMAL(5,2),
+    no_registrasi varchar(50) not null,
+    foreign key (no_registrasi) references data_pribadi(no_registrasi),
+    primary key (id_pendidikan));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$datapribadi_model->load(Yii::$app->request->post()) && $orangtua_model->load(Yii::$app->request->post()) &&
+$wilayahMatra_model->load(Yii::$app->request->post()) && $pendidikan_model->load(Yii::$app->request->post()) &&
+
+
+		 $datapribadi_model->validate() && $orangtua_model->validate() &&
+		$wilayahMatra_model->validate() && $pendidikan_model->validate() &&
+		$uploadform_model->validate()
+
+&&
+					!empty($surat_keterangan_sehat) && !empty($ktp) && !empty($kk) &&
+					!empty($ijazah_transkrip_nilai) && !empty($skck) && !empty($foto)
+
+
+
+
+if ( $datapribadi_model->validate() && $orangtua_model->validate() &&
+					$wilayahMatra_model->validate() && $pendidikan_model->validate() &&
+					$uploadform_model->validate()){
+						
+					$surat_keterangan_sehat->saveAs('uploads/dokumen/1SUKETSHT/' . $no_registrasi.'_SUKETSHT.' . $surat_keterangan_sehat->extension);
+					$lampiran_model->surat_keterangan_sehat = $no_registrasi.'_SUKETSHT.' . $surat_keterangan_sehat->extension;
+					
+					$ktp->saveAs('uploads/dokumen/2KTP/' . $no_registrasi.'_KTP.' . $ktp->extension);
+					$lampiran_model->ktp = $no_registrasi.'_KTP.' . $ktp->extension;
+					
+					$kk->saveAs('uploads/dokumen/3KK/' . $no_registrasi.'_KK.' . $kk->extension);
+					$lampiran_model->kk = $no_registrasi.'_KK.' . $kk->extension;
+					
+					$ijazah_transkrip_nilai->saveAs('uploads/dokumen/4IJAZAH/' . $no_registrasi.'_IJAZAH.' . $ijazah_transkrip_nilai->extension);
+					$lampiran_model->ijazah_transkrip_nilai = $no_registrasi.'_IJAZAH.' . $ijazah_transkrip_nilai->extension;
+					
+					$skck->saveAs('uploads/dokumen/5SKCK/' . $no_registrasi.'_SKCK.' . $skck->extension);
+					$lampiran_model->skck = $no_registrasi.'_SKCK.' . $skck->extension;
+					
+					$foto->saveAs('uploads/dokumen/6FOTO/' . $no_registrasi.'_FOTO.' . $foto->extension);
+					$lampiran_model->foto = $no_registrasi.'_FOTO.' . $foto->extension;
+

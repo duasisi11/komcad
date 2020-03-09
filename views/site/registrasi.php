@@ -41,7 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
             <!--/#table-container-->
 <?php //else :
-        }else{ ?>
+		}else{ ?>
             <div class="home-daftar">
                 <h3 class="page-header"><?= Html::encode($this->title) ?></h3>
                 <div class="row">
@@ -50,7 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             <li><a href="#tab1-item1" data-toggle="tab">Petunjuk Pendaftaran</a></li>
                             <li class="active"><a href="#tab1-item2" data-toggle="tab">Form Pendaftaran</a></li>
                         </ul>
-                        <div class="tab-content">
+							<div class="tab-content">
                                 <div class="tab-pane fade" id="tab1-item1">
                                         <h3>Petunjuk Pendaftaran Komponen Cadangan</h3>
                                 </div>
@@ -172,20 +172,13 @@ $this->params['breadcrumbs'][] = $this->title;
 											<div class="col-xs-12">
 												<div class="col-md-12">
 													<h3>Upload Data Lampiran</h3>
-													<br>
-													
-													<?= $form->field($lampiran_model, 'surat_keterangan_sehat')->fileInput(['class' => 'form-control']) ?>
-													
-													<?= $form->field($lampiran_model, 'ktp')->fileInput(['class' => 'form-control']) ?>
-													
-													<?= $form->field($lampiran_model, 'kk')->fileInput(['class' => 'form-control']) ?>
-														
-													<?= $form->field($lampiran_model, 'ijazah_transkrip_nilai')->fileInput(['class' => 'form-control']) ?>
-													
-													<?= $form->field($lampiran_model, 'skck')->fileInput(['class' => 'form-control']) ?>
-													
-													<?= $form->field($lampiran_model, 'foto')->fileInput(['class' => 'form-control']) ?>
-													
+													<br>  
+													<?= $form->field($datapribadi_model, 'surat_keterangan_sehat2')->fileInput(['class' => 'form-control']) ?>		
+													<?= $form->field($datapribadi_model, 'ktp2')->fileInput(['class' => 'form-control']) ?>
+													<?= $form->field($datapribadi_model, 'kk2')->fileInput(['class' => 'form-control']) ?>	
+													<?= $form->field($datapribadi_model, 'ijazah_transkrip_nilai2')->fileInput(['class' => 'form-control']) ?>
+													<?= $form->field($datapribadi_model, 'skck2')->fileInput(['class' => 'form-control']) ?>
+													<?= $form->field($datapribadi_model, 'foto2')->fileInput(['class' => 'form-control']) ?>
 													<span class="product-description pull-left">
 														<small>File dokumen harus bertipe *.pdf atau *.jpg </small><br>
 													</span>
@@ -204,7 +197,7 @@ $this->params['breadcrumbs'][] = $this->title;
 									<!--</form>-->
 									
                                 </div>
-                        </div>
+							</div>
 						
                     </div>
                 </div>

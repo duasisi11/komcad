@@ -48,9 +48,7 @@ class UploadForm extends Model
     {
 		$lampiran = new Lampiran();
 		
-        if(!$this->validate()){
-			return null;
-        }else{
+        if($this->validate()){
 			$this->surat_keterangan_sehat->saveAs('uploads/dokumen/1SUKETSHT/' . $no_registrasi.'_SUKETSHT.' . $this->surat_keterangan_sehat->extension);
 			$this->ktp->saveAs('uploads/dokumen/2KTP/' . $no_registrasi.'_KTP.' . $this->ktp->extension);
 			$this->kk->saveAs('uploads/dokumen/3KK/' . $no_registrasi.'_KK.' . $this->kk->extension);
@@ -70,6 +68,8 @@ class UploadForm extends Model
 				$lampiran->save(); 
 				
 			return true;
+        }else{
+			return false;
         }
     }
 }

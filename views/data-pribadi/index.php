@@ -45,6 +45,12 @@ $this->params['breadcrumbs'][] = $this->title;
             //'jumlah_saudara_kandung',
             //'anak_ke_berapa',
             //'dari_jumlah_bersaudara',
+            //'surat_keterangan_sehat',
+            //'ktp',
+            //'kk',
+            //'ijazah_transkrip_nilai',
+            //'skck',
+            //'foto',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

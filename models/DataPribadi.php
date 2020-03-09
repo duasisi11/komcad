@@ -29,14 +29,26 @@ use Yii;
  * @property int|null $jumlah_saudara_kandung
  * @property int|null $anak_ke_berapa
  * @property int|null $dari_jumlah_bersaudara
+ * @property string|null $surat_keterangan_sehat
+ * @property string|null $ktp
+ * @property string|null $kk
+ * @property string|null $ijazah_transkrip_nilai
+ * @property string|null $skck
+ * @property string|null $foto
  *
- * @property Lampiran[] $lampirans
  * @property Orangtua[] $orangtuas
  * @property Pendidikan[] $pendidikans
  * @property WilayahMatra[] $wilayahMatras
  */
 class DataPribadi extends \yii\db\ActiveRecord
 {
+	public $surat_keterangan_sehat2;
+	public $ktp2;
+	public $kk2;
+	public $ijazah_transkrip_nilai2;
+	public $skck2;
+	public $foto2;
+	 
     /**
      * {@inheritdoc}
      */
@@ -51,20 +63,28 @@ class DataPribadi extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            //[['no_registrasi', 'nik'], 'required'],
-            [['nik'], 'required'],
-			
-			[['nama_lengkap', 'tempat_lahir', 'tanggal_lahir', 'jenis_kelamin', 'agama', 'suku', 'kewarganegaraan', 'tinggi_badan',
+			[['no_registrasi','nama_lengkap', 'nik', 'tempat_lahir', 'tanggal_lahir', 'jenis_kelamin', 'agama', 'suku', 'kewarganegaraan', 'tinggi_badan',
 			'berat_badan', 'alamat', 'kelurahan_desa', 'kecamatan','kabupaten', 'provinsi', 'domisili','kode_pos', 'nomer_telepon',
 			'jumlah_saudara_kandung', 'anak_ke_berapa', 'dari_jumlah_bersaudara'], 'safe'],
 			
-            [['tanggal_lahir'], 'safe'],
+			[['surat_keterangan_sehat', 'ktp', 'kk', 'ijazah_transkrip_nilai', 'skck', 'foto'], 'safe'],
+			
             [['jenis_kelamin', 'alamat'], 'string'],
             [['tinggi_badan', 'berat_badan', 'jumlah_saudara_kandung', 'anak_ke_berapa', 'dari_jumlah_bersaudara'], 'integer'],
             [['no_registrasi', 'nama_lengkap', 'nik', 'suku', 'kewarganegaraan'], 'string', 'max' => 50],
             [['tempat_lahir'], 'string', 'max' => 60],
             [['agama', 'kode_pos', 'nomer_telepon'], 'string', 'max' => 30],
             [['kelurahan_desa', 'kecamatan', 'kabupaten', 'provinsi', 'domisili'], 'string', 'max' => 100],
+            
+            //[['surat_keterangan_sehat', 'ktp', 'kk', 'ijazah_transkrip_nilai', 'skck', 'foto'], 'string', 'max' => 80],
+			
+			[['surat_keterangan_sehat2'], 'file', 'skipOnEmpty' => FALSE, 'extensions' => 'pdf'],
+			[['ktp2'], 'file', 'skipOnEmpty' => FALSE, 'extensions' => 'pdf'],
+			[['kk2'], 'file', 'skipOnEmpty' => FALSE, 'extensions' => 'pdf'],
+			[['ijazah_transkrip_nilai2'], 'file', 'skipOnEmpty' => FALSE, 'extensions' => 'pdf'],
+			[['skck2'], 'file', 'skipOnEmpty' => FALSE, 'extensions' => 'pdf'],
+			[['foto2'], 'file', 'skipOnEmpty' => FALSE, 'extensions' => 'jpg,jpeg,png'],
+			
             [['no_registrasi'], 'unique'],
         ];
     }
@@ -97,17 +117,14 @@ class DataPribadi extends \yii\db\ActiveRecord
             'jumlah_saudara_kandung' => 'Jumlah Saudara Kandung',
             'anak_ke_berapa' => 'Anak Ke Berapa',
             'dari_jumlah_bersaudara' => 'Dari Jumlah Bersaudara',
+			
+            'surat_keterangan_sehat2' => 'Surat Keterangan Sehat',
+            'ktp2' => 'KTP',
+            'kk2' => 'KK',
+            'ijazah_transkrip_nilai2' => 'Ijazah Transkrip Nilai',
+            'skck2' => 'SKCK',
+            'foto2' => 'Foto',
         ];
-    }
-
-    /**
-     * Gets query for [[Lampirans]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getLampirans()
-    {
-        return $this->hasMany(Lampiran::className(), ['no_registrasi' => 'no_registrasi']);
     }
 
     /**

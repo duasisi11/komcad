@@ -16,6 +16,7 @@ use app\models\Orangtua;
 use app\models\WilayahMatra;
 use app\models\Pendidikan;
 use app\models\Lampiran;
+use app\models\UploadForm;
 
 use yii\web\UploadedFile;
 
@@ -26,7 +27,8 @@ class SiteController extends Controller
      */
 	 
 	 //--Setting layout
-    public $layout = 'main-frontend';
+    //public $layout = 'main-frontend';
+    public $layout = 'main';
 	
     public function behaviors()
     {
@@ -83,77 +85,43 @@ class SiteController extends Controller
 		$orangtua_model = new Orangtua();
 		$wilayahMatra_model = new WilayahMatra();
 		$pendidikan_model = new Pendidikan();
-		$lampiran_model = new Lampiran();
+		$uploadform_model = new UploadForm();
 
         $title = 'Pendaftaran Komponen Cadangan';
 		$no_registrasi = "REG-".time();
 		
-		//var_dump($model->load(Yii::$app->request->post()));exit;
-		//var_dump(Yii::$app->request->post());exit;
-		
+		//var_dump($uploadform_model->load(Yii::$app->request->post()));exit;
+		//var_dump(Yii::$app->request->isPost);exit;
 			
-		$surat_keterangan_sehat = UploadedFile::getInstance($lampiran_model, 'surat_keterangan_sehat');
-		$ktp = UploadedFile::getInstance($lampiran_model, 'ktp');
-		$kk = UploadedFile::getInstance($lampiran_model, 'kk');
-		$ijazah_transkrip_nilai = UploadedFile::getInstance($lampiran_model, 'ijazah_transkrip_nilai');
-		$skck = UploadedFile::getInstance($lampiran_model, 'skck');
-		$foto = UploadedFile::getInstance($lampiran_model, 'foto');
+		if (Yii::$app->request->isPost &&
+		$datapribadi_model->validate() && $orangtua_model->validate() && $wilayahMatra_model->validate() && $pendidikan_model->validate() 
+		&& $uploadform_model->upload_doc($no_registrasi)
+		){
+			$uploadform_model->surat_keterangan_sehat = UploadedFile::getInstance($uploadform_model, 'surat_keterangan_sehat');
+			$uploadform_model->ktp = UploadedFile::getInstance($uploadform_model, 'ktp');
+			$uploadform_model->kk = UploadedFile::getInstance($uploadform_model, 'kk');
+			$uploadform_model->ijazah_transkrip_nilai = UploadedFile::getInstance($uploadform_model, 'ijazah_transkrip_nilai');
+			$uploadform_model->skck = UploadedFile::getInstance($uploadform_model, 'skck');
+			$uploadform_model->foto = UploadedFile::getInstance($uploadform_model, 'foto');
 			
-		if ($datapribadi_model->load(Yii::$app->request->post()) && $orangtua_model->load(Yii::$app->request->post()) &&
-		$wilayahMatra_model->load(Yii::$app->request->post()) && $pendidikan_model->load(Yii::$app->request->post()) &&
-		$lampiran_model->load(Yii::$app->request->post()) &&
-		$datapribadi_model->validate() && $orangtua_model->validate() &&
-		$wilayahMatra_model->validate() && $pendidikan_model->validate()) {
-			
-				//var_dump($lampiran_model->errors);exit;		
+				//var_dump($surat_keterangan_sehat);exit;		
+				$datapribadi_model->no_registrasi=$no_registrasi;
+				$datapribadi_model->save();
 				
-					$datapribadi_model->no_registrasi=$no_registrasi;
-					$datapribadi_model->save();
-					
-					$orangtua_model->no_registrasi=$no_registrasi;
-					$orangtua_model->save();
-					
-					$wilayahMatra_model->no_registrasi=$no_registrasi;
-					$wilayahMatra_model->save();
-					
-					$pendidikan_model->no_registrasi=$no_registrasi;
-					$pendidikan_model->save();
-					
-					$lampiran_model->no_registrasi=$no_registrasi;
-					$lampiran_model->save();
-					
-					if (!empty($surat_keterangan_sehat) && !empty($ktp) && !empty($kk) &&
-						!empty($ijazah_transkrip_nilai) && !empty($skck) && !empty($foto)){
-							
-						$surat_keterangan_sehat->saveAs('uploads/dokumen/1SUKETSHT/' . $no_registrasi.'_SUKETSHT.' . $surat_keterangan_sehat->extension);
-						$lampiran_model->surat_keterangan_sehat = $no_registrasi.'_SUKETSHT.' . $surat_keterangan_sehat->extension;
-						
-						$ktp->saveAs('uploads/dokumen/2KTP/' . $no_registrasi.'_KTP.' . $ktp->extension);
-						$lampiran->ktp = $no_registrasi.'_KTP.' . $ktp->extension;
-						
-						$kk->saveAs('uploads/dokumen/3KK/' . $no_registrasi.'_KK.' . $kk->extension);
-						$lampiran->kk = $no_registrasi.'_KK.' . $kk->extension;
-						
-						$ijazah_transkrip_nilai->saveAs('uploads/dokumen/4IJAZAH/' . $no_registrasi.'_IJAZAH.' . $ijazah_transkrip_nilai->extension);
-						$lampiran->ijazah_transkrip_nilai = $no_registrasi.'_IJAZAH.' . $ijazah_transkrip_nilai->extension;
-						
-						$skck->saveAs('uploads/dokumen/5SKCK/' . $no_registrasi.'_SKCK.' . $skck->extension);
-						$lampiran->skck = $no_registrasi.'_SKCK.' . $skck->extension;
-						
-						$foto->saveAs('uploads/dokumen/6FOTO/' . $no_registrasi.'_FOTO.' . $foto->extension);
-						$lampiran->foto = $no_registrasi.'_FOTO.' . $foto->extension;
-					
-						$lampiran_model->no_registrasi=$no_registrasi;
-						$lampiran_model->save(FALSE);
-					}
+				$orangtua_model->no_registrasi=$no_registrasi;
+				$orangtua_model->save();
 				
-			
-				//$lampiran_model->save();
+				$wilayahMatra_model->no_registrasi=$no_registrasi;
+				$wilayahMatra_model->save();
+				
+				$pendidikan_model->no_registrasi=$no_registrasi;
+				$pendidikan_model->save();
+				
 				//Melakukan penambahan setFlash pada session dengan nama 'daftarFormSubmitted'
 				Yii::$app->session->setFlash('daftarFormSubmitted','Berhasil daftar dengan nomor registrasi : ');
 				//$this->redirect(array('site/registrasi', 'no_registrasi' => $no_registrasi));
 				return $this->refresh();
-			
+				
 		}else{
 			return $this->render('registrasi', [
 				'title' => $title,
@@ -161,7 +129,7 @@ class SiteController extends Controller
 				'orangtua_model' => $orangtua_model,
 				'wilayahMatra_model' => $wilayahMatra_model,
 				'pendidikan_model' => $pendidikan_model,
-				'lampiran_model' => $lampiran_model,
+				'uploadform_model' => $uploadform_model,
 			]);
 		}
     }
